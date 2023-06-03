@@ -1,2 +1,2 @@
 FROM nginx
-COPY index.html /home/vagrant/git/docker/index.html
+COPY index.html /usr/share/nginx/html/index.html
