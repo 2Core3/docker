@@ -22,7 +22,7 @@ pipeline {
         stage('Push') {
             steps {
                 script {
-                    docker.withRegistry('http://172.30.0.5":5000') {
+                    docker.withRegistry('http://192.168.16.4:5000') {
                         docker.image('lesson38-docker').push()
                     }
                 }
