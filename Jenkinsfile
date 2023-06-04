@@ -1,7 +1,7 @@
 pipeline {
     agent {
-            label 'vagrant'
-          }
+        label 'vagrant'
+    }
     stages {
         stage('Build') {
             steps {
@@ -15,7 +15,6 @@ pipeline {
                 sh 'docker run -d -p 80:80 --name lesson38-docker lesson38-docker'
             }
         }
-
         stage('Test') {
             steps {
                 sh 'curl 192.168.56.3:80'
@@ -33,9 +32,11 @@ pipeline {
                         docker.image('lesson38-docker').push()
                     }
                 }
+            }
+        }
         stage('clean') {
             steps {
-                sh 'docker rm lesson38-docker'         
+                sh 'docker rm lesson38-docker'
             }
         }
     }
@@ -45,3 +46,4 @@ pipeline {
         }
     }
 }
+
