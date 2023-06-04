@@ -6,7 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    docker.build('lesson38-docker')
+                    sh 'docker build -t lesson38-docker .'
                 }
             }
         }
