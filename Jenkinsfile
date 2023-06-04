@@ -1,7 +1,8 @@
 pipeline {
     agent {
-            label 'vagrant'
-          }
+        label 'vagrant'
+    }
+    stages {
         stage('Build') {
             steps {
                 script {
@@ -28,4 +29,5 @@ pipeline {
                 }
             }
         }
-}
+    }
+ }
