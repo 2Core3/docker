@@ -2,11 +2,6 @@ pipeline {
     agent {
             label 'vagrant'
           }
-    stages {
-        stage('clean') {
-            steps {
-                sh 'docker stop lesson38-docker && docker rm lesson38-docker && docker rmi lesson38-docker'
-            }
         }
         stage('Build') {
             steps {
