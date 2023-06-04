@@ -1,6 +1,13 @@
 pipeline {
-    agent any
+    agent {
+            label 'vagrant'
+          }
     stages {
+        stage('clean') {
+            steps {
+                sh 'docker stop lesson38-docker && docker rm lesson38-docker && docker rmi lesson38-docker'
+            }
+        }
         stage('Build') {
             steps {
                 script {
@@ -18,11 +25,6 @@ pipeline {
                 sh 'curl 192.168.56.3:80'
             }
         }
-        stage('stop') {
-            steps {
-                sh 'docker stop lesson38-docker'
-            }
-        }
         stage('Push') {
             steps {
                 script {
@@ -31,16 +33,6 @@ pipeline {
                     }
                 }
             }
-        }
-        stage('clean') {
-            steps {
-                sh 'docker rm lesson38-docker'
-            }
-        }
-    }
-    post {
-        always {
-            sh 'docker rmi lesson38-docker'
         }
     }
 }
