@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Run') {
             steps {
-                sh 'docker run -d -rm -p 80:80 --name lesson38-docker lesson38-docker'
+                sh 'docker run -d -p 80:80 --name lesson38-docker lesson38-docker'
             }
         }
 
@@ -33,6 +33,7 @@ pipeline {
         stage('clean') {
             steps {
                 sh 'docker stop lesson38-docker'
+                sh 'docker rm lesson38-docker'
             }
         }
 
