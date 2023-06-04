@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+            label 'vagrant'
+          }
     stages {
         stage('Build') {
             steps {
@@ -16,7 +18,6 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'ip ad'
                 sh 'curl 192.168.56.3:80'
             }
         }
