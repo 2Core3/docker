@@ -44,7 +44,7 @@ pipeline {
             sh 'docker rm lesson38-docker'
         }
         always {
-            sh 'docker images rmi lesson38-docker'
+            sh 'docker rmi lesson38-docker'
         }
     }
 }
