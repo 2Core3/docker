@@ -32,8 +32,10 @@ pipeline {
         }
         stage('clean') {
             steps {
-                sh 'docker stop lesson38-docker && docker rm -f lesson38-docker'
-            }
+                   sh 'docker stop lesson38-docker'
+                   sh 'sleep 30'
+                   sh 'docker rm -f lesson38-docker'
+                  }
         }
 
     }
