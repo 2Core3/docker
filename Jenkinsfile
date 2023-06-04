@@ -3,11 +3,6 @@ pipeline {
             label 'vagrant'
           }
     stages {
-        stage('clean') {
-            steps {
-                sh 'docker stop lesson38-docker && docker rm lesson38-docker && docker rmi lesson38-docker'
-            }
-        }
         stage('Build') {
             steps {
                 script {
@@ -20,6 +15,7 @@ pipeline {
                 sh 'docker run -d -p 80:80 --name lesson38-docker lesson38-docker'
             }
         }
+
         stage('Test') {
             steps {
                 sh 'curl 192.168.56.3:80'
@@ -36,4 +32,3 @@ pipeline {
         }
     }
 }
-
